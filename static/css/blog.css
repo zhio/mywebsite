@@ -22,3 +22,6 @@ ul.blog-info-description li{
 div.blog-content{
     text-indent:2em;
 }
+div.paginator{
+    margin-top:2em; 
+}
