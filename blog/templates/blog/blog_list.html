@@ -21,10 +21,10 @@
                                     {{ blog.title }}
                                 </a></h5>
                                 <p class="blog-info">
-                                    <i class="fa  fa-tag fa-fw" ></i> <a href="{% url 'blogs_with_type' blog.blog_type.pk %}">{{blog.blog_type}}</a>
-                                    <i class="fa  fa-clock-o fa-fw"></i>{{blog.created_time|date:"Y-m-d"}}
+                                    <i class="fa  fa-tag fa-fw" ></i> <a href="{% url 'blogs_with_type' blog.blog_type.pk %}">{{blog.blog_type}}</a>&nbsp;&nbsp;
+                                    <i class="fa  fa-clock-o fa-fw"></i>{{blog.created_time|date:"Y-m-d"}} &nbsp;&nbsp;阅读({{blog.readed_num}})
                                 </p>
-                                <p>{{ blog.content|truncatechars:120}}</p>
+                                <p>{{ blog.content|striptags|truncatechars:120}}</p>
                                 </div>
                                 {% empty%}
                                     <p>---暂无博客，敬请期待----</p>
@@ -77,24 +77,38 @@
             </div>
             <div class="col-sm-3">
                 <div class="card border-dark">
-                        <div class="card-header">博客分类</div>
-                        <div class="card-body text-dark">
-                            <ul class="list-unstyled blog-types">
-                            {% for blog_type in blog_types %}
-                                <li>
-                                    <a href="{% url 'blogs_with_type' blog_type.pk %}">
-                                        {{ blog_type.type_name}}
+                    <div class="card-header">博客分类</div>
+                    <div class="card-body text-dark">
+                        <ul class="list-unstyled blog-types">
+                        {% for blog_type in blog_types %}
+                            <li>
+                                <a href="{% url 'blogs_with_type' blog_type.pk %}">
+                                    {{ blog_type.type_name}}({{ blog_type.blog_count}})
+                                </a>
+                            </li>
+                        {% empty %}
+                            <li>暂无分类</li>
+                        {% endfor %}
+                        </ul>              
+                    </div>
+                </div>
+                <div class="card border-dark">
+                    <div class="card-header">日期归档</div>
+                    <div class="card-body text-dark">
+                        <ul>
+                            {% for blog_date,blog_count in blog_dates.items %}
+                               <li>
+                                   <a href="{% url 'blogs_with_date' blog_date.year blog_date.month%}">  
+                                    {{ blog_date|date:"Y年m月"}}({{blog_count}})
                                     </a>
                                 </li>
-                            {% empty %}
-                                <li>暂无分类</li>
                             {% endfor %}
-                            </ul>              
-                        </div>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-     
+        
 
 {% endblock %}
 
