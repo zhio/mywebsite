@@ -10,12 +10,12 @@
 {% block content %}
     <div class="container">
         <div class="row">
-            <div class="col-sm-9">
-
-                    <div class="card border-dark">
-                        <div class="card-header">{% block blog_list_title %}博客列表  {%endblock%}</div>
-                        <div class="card-body text-dark ">
+            <div class="col-sm-9">          
+                        <div class="btitle">{% block blog_list_title %}<h4><i class="fa fa-file-text" aria-hidden="true"> 博客列表</i> </h4> {%endblock%}</div>
+                    
                             {% for blog in page_of_blogs.object_list %}
+                            <div class="card card-style">
+                                <div class="card-body">
                                 <div class="blog">
                                  <h5 class="card-title"><a href="{% url 'blog_detail' blog.pk %}">
                                     {{ blog.title }}
@@ -26,12 +26,13 @@
                                 </p>
                                 <p>{{ blog.content|striptags|truncatechars:120}}</p>
                                 </div>
+                            </div>
+                            </div>
                                 {% empty%}
                                     <p>---暂无博客，敬请期待----</p>
                                 {% endfor%}
                                   
-                        </div>
-                    </div>
+
                     <div class="paginator text-center">
                             <ul class="pagination justify-content-center">
                                 {#前一页#}
@@ -76,7 +77,7 @@
 
             </div>
             <div class="col-sm-3">
-                <div class="card border-dark">
+                <div class="card card-style">
                     <div class="card-header">博客分类</div>
                     <div class="card-body text-dark">
                         <ul class="list-unstyled blog-types">
@@ -92,7 +93,7 @@
                         </ul>              
                     </div>
                 </div>
-                <div class="card border-dark">
+                <div class="card card-style">
                     <div class="card-header">日期归档</div>
                     <div class="card-body text-dark">
                         <ul>
@@ -108,7 +109,7 @@
                 </div>
             </div>
         </div>
-        
+       </div> 
 
 {% endblock %}
 

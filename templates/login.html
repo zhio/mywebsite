@@ -1,0 +1,23 @@
+{% extends 'base.html'%}
+{% load staticfiles %}
+{% block title %}
+    我的网站|登陆
+{% endblock %}
+
+{% block nav_home_active%}
+active
+{% endblock%}
+{% block content %}
+    <div class = "container">
+            <form class="form-signin" action="" method="POST">
+                {% csrf_token %}
+                {% for field in login_form %}
+                    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                    {{ field }}
+                    <p class="text-danger">{{ field.errors.as_text}}</p>
+                {% endfor%}
+                <span class="pull-left text-danger">{{ login_form.non_field_errors}}</span>
+                <input class="btn  btn-primary btn-block" type="submit" value="登陆">
+            </form> 
+    </div>
+{% endblock %}

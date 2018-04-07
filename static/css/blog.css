@@ -26,3 +26,20 @@ div.blog-mores{
 div.paginator{
     margin-top:2em; 
 }
+div.card-style{
+    margin-top: 1em;
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,.05), inset 0 -1px 0 rgba(0,0,0,.1);
+}
+div.btitle{
+    padding-top: 2em;
+}
+div.text-style{
+    padding-top: 2em;
+}
+div.comment-area{
+    margin-top:2em;
+}
+h3.comment-area-title{
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 0.4em;
+}

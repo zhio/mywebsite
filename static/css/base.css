@@ -2,9 +2,32 @@
     margin: 0;
     padding: 0;
 }
-body{
-    margin-top: 100px!important;
+body {
+    background-color: #ededef!important;
 }
 ul{
   list-style-type: none;  
+}
+.bd-navbar {
+    background-color: #4c4868;
+    min-height: 4rem;
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,.05), inset 0 -1px 0 rgba(0,0,0,.1);
+}
+.bd-navbar__fixed {
+    background:rgba(76,72,104,0.9);
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,.05), inset 0 -1px 0 rgba(0,0,0,.1);
+  }
+
+  .footer2{
+      height: 4em;
+      width: 100%;
+      background-color: #4c4868;
+      padding-top: 1.5em;
+
+
+  }
+  .form-signin {
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
 }
